@@ -45,19 +45,19 @@ boolean oneshoot(boolean stan){
 void loop() {
   
    
-  boolean A_up = digitalRead(ENC_1);
-  boolean A_dn = digitalRead(ENC_2);
-  boolean ONS_aup = oneshoot(A_up);
-  boolean ONS_adn = oneshoot(A_dn);
+  boolean A_p = digitalRead(ENC_1);
+  boolean A_m = digitalRead(ENC_2);
+  boolean ONS_p = oneshoot(A_p);
+  boolean ONS_m = oneshoot(A_m);
 
-  digitalWrite(ENC_OUTPUT_A1, ONS_aup);
-  digitalWrite(ENC_OUTPUT_A2, ONS_adn);
+  digitalWrite(ENC_OUTPUT_A1, ONS_p);
+  digitalWrite(ENC_OUTPUT_A2, ONS_m);
 
-  if(!ONS_aup && ONS_adn) {
+  if(!ONS_p && ONS_m) {
     enkoder_ticks++;
     Serial.println(enkoder_ticks);
   }
-  if(ONS_aup && !ONS_adn) {
+  if(ONS_p && !ONS_m) {
     enkoder_ticks--;
     Serial.println(enkoder_ticks);
     }
