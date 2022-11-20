@@ -9,7 +9,6 @@
 
 boolean stan; 
 boolean stan_p;
-boolean ONS;
 long enkoder_ticks = 0;
 void setup() {
   Serial.begin(115200);
@@ -31,20 +30,16 @@ void setup() {
 boolean oneshoot(boolean stan){
   
   boolean X;
-  if(stan != stan_p){
-    X = 1;
-  }
-  else{
-    X = 0;
-  }
+
+  if(stan != stan_p)  X = 1;
+  else                X = 0;
+
   stan_p = stan;
   return X;
 }
 
 
 void loop() {
-  
-   
   boolean A_p = digitalRead(ENC_1);
   boolean A_m = digitalRead(ENC_2);
   boolean ONS_p = oneshoot(A_p);
@@ -55,13 +50,10 @@ void loop() {
 
   if(!ONS_p && ONS_m) {
     enkoder_ticks++;
-    Serial.println(enkoder_ticks);
   }
   if(ONS_p && !ONS_m) {
     enkoder_ticks--;
-    Serial.println(enkoder_ticks);
     }
- 
 }
 
 
