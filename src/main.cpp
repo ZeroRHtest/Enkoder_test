@@ -28,9 +28,9 @@ void setup() {
   pinMode(ENC_2, INPUT_PULLUP);
 }
 
-byte oneshoot(byte stan){
+boolean oneshoot(boolean stan){
   
-  int X;
+  boolean X;
   if(stan != stan_p){
     X = 1;
   }
@@ -45,10 +45,10 @@ byte oneshoot(byte stan){
 void loop() {
   
    
-  byte A_up = digitalRead(ENC_1);
-  byte A_dn = digitalRead(ENC_2);
-  byte ONS_aup = oneshoot(A_up);
-  byte ONS_adn = oneshoot(A_dn);
+  boolean A_up = digitalRead(ENC_1);
+  boolean A_dn = digitalRead(ENC_2);
+  boolean ONS_aup = oneshoot(A_up);
+  boolean ONS_adn = oneshoot(A_dn);
 
   digitalWrite(ENC_OUTPUT_A1, ONS_aup);
   digitalWrite(ENC_OUTPUT_A2, ONS_adn);
