@@ -7,7 +7,6 @@
 #define ENC_OUTPUT_A1 14  //      
 #define ENC_OUTPUT_A2 12  //
 
-boolean stan; 
 boolean stan_p;
 long enkoder_ticks = 0;
 void setup() {
@@ -25,16 +24,15 @@ void setup() {
   pinMode(ENC_OUTPUT_A2, OUTPUT);
   pinMode(ENC_1, INPUT_PULLUP);
   pinMode(ENC_2, INPUT_PULLUP);
+
 }
 
 boolean oneshoot(boolean stan){
-  
   boolean X;
-
-  if(stan != stan_p)  X = 1;
-  else                X = 0;
-
+  if(stan != stan_p)  {X = 1;}
+  else                {X = 0;}
   stan_p = stan;
+  
   return X;
 }
 
@@ -54,6 +52,8 @@ void loop() {
   if(ONS_p && !ONS_m) {
     enkoder_ticks--;
     }
+
+  
 }
 
 
